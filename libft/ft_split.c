@@ -35,7 +35,7 @@ int	ft_split_len_arr(char const *s, char c)
 	return (nbr);
 }
 
-void	ft_split_free_if(char **tab, int max)
+static void	ft_split_free_if(char **tab, int max)
 {
 	int	i;
 

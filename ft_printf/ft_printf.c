@@ -13,6 +13,8 @@
 //#include "../include/ft_printf.h"
 #include "ft_printf.h"
 
+#include <stdio.h>
+
 // get the variadic arg and put it in the required conversion type
 int	ft_put_argval(char type, va_list arg_ptr)
 {
@@ -28,6 +30,8 @@ int	ft_put_argval(char type, va_list arg_ptr)
 		return (ft_argtype_ui(arg_ptr));
 	else if (type == 'x' || type == 'X')
 		return (ft_argtype_hex(arg_ptr, type));
+	else if (type == 'f')
+		return (ft_argtype_float(arg_ptr));
 	else
 		return (0);
 }

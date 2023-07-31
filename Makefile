@@ -28,7 +28,7 @@ FILE_LIBFT = ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 FILE_GNL = get_next_line_utils.c get_next_line.c
 FILE_PRINTF = ft_printf.c ft_printf_utils.c ft_printf_utils_str_char.c \
-	ft_printf_utils_nbr.c ft_printf_utils_hex.c
+	ft_printf_utils_nbr.c ft_printf_utils_hex.c ft_printf_utils_float.c
 
 SRC_LIBFT = $(FILE_LIBFT:%=$(PATH_LIBFT)%)
 SRC_GNL = $(FILE_GNL:%=$(PATH_GNL)%)
@@ -36,27 +36,28 @@ SRC_PRINTF = $(FILE_PRINTF:%=$(PATH_PRINTF)%)
 
 H_FILES = libft.h get_next_line.h ft_printf.h
 
-OBJ_LIBFT = $(SRC_LIBFT:.c=.o)
-OBJ_GNL = $(SRC_GNL:.c=.o)
-OBJ_PRINTF = $(SRC_PRINTF:.c=.o)
+OBJ_LIBFT = $(FILE_LIBFT:.c=.o)
+OBJ_GNL = $(FILE_GNL:.c=.o)
+OBJ_PRINTF = $(FILE_PRINTF:.c=.o)
 
 C_FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ_LIBFT) $(OBJ_GNL) $(OBJ_PRINTF)
-	@cc $(C_FLAGS) -c $(SRC_LIBFT) $(SRC_GNL) $(SRC_PRINTF)
+$(NAME):
+	@cc $(C_FLAGS) -c $(SRC_LIBFT) -I.
+	@cc $(C_FLAGS) -c $(SRC_GNL) $(SRC_PRINTF)
 	@ar rc $(NAME) $(OBJ_LIBFT) $(OBJ_GNL) $(OBJ_PRINTF)
 	@ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ_LIBFT) $(OBJ_GNL) $(OBJ_PRINTF)
-	rm -f $(FILE_LIBFT:.c=.o)
-	rm -f $(FILE_GNL:.c=.o)
-	rm -f $(FILE_PRINTF:.c=.o)
+	@rm -f $(OBJ_LIBFT) $(OBJ_GNL) $(OBJ_PRINTF)
+	@rm -f $(FILE_LIBFT:.c=.o)
+	@rm -f $(FILE_GNL:.c=.o)
+	@rm -f $(FILE_PRINTF:.c=.o)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
