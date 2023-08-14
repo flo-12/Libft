@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../include/ft_printf.h"
 #include "ft_printf.h"
 
 int	ft_conv_float_int(double nbr, int dec)

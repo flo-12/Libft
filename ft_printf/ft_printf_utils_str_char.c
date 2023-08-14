@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../include/ft_printf.h"
 #include "ft_printf.h"
 
 int	ft_argtype_c(va_list arg_ptr)

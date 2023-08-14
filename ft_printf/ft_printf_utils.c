@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../include/ft_printf.h"
 #include "ft_printf.h"
 
 int	ft_ismember(char c, char *str)

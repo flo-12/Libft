@@ -16,21 +16,22 @@ int	ft_split_len_arr(char const *s, char c)
 {
 	int	nbr;
 	int	unique;
+	int	i;
 
 	nbr = 0;
 	unique = 0;
-	while (*s)
+	i = -1;
+	while (s[++i])
 	{
-		if (*s != c)
+		if (s[i] != c)
 			unique = 1;
-		if (*s == c && unique)
+		if (s[i] == c && unique)
 		{
 			nbr++;
 			unique = 0;
 		}
-		s++;
 	}
-	if (*(s - 1) != c && unique)
+	if (i != 0 && s[i - 1] != c && unique)
 		nbr++;
 	return (nbr);
 }
@@ -81,6 +82,8 @@ char	**ft_split(char const *s, char c)
 	char	**addr;
 	int		l_addr;
 
+	if (!s)
+		return (NULL);
 	l_addr = ft_split_len_arr(s, c);
 	addr = (char **)malloc(sizeof(char *) * (l_addr + 1));
 	if (!addr)
