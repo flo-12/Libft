@@ -97,9 +97,18 @@ The file descriptor `fd` is passed as a parameter. The function returns the valu
 Each call of the function returns the next line of the file descriptor.
 
 
-# Usage
-The interface of C standard library is defined by the following collection of headers.
+# Built, Include and Use
+
+Built the `libft.a`:
+1. clone the repo
+2. navigate to the folder
+3. `make` in terminal
+
+Include the header:
+* simply include the header-file `libft.h` (located at the root of libft) for all the functions listed above (including get_next_line und ft_printf)
+
+Use the `libft.a`:
+* when compiling you own project, add `-I ./<LIBFT_PATH>` and `<LIBFT_PATH>/libft.a` (or simply `lft)`
+* e.g.: `cc -Wall -Werror -Wextra <c-files> -I ./<LIBFT_PATH> lft`
 
 
-
-This library is used in other projects of the 42 Core Curriculum
